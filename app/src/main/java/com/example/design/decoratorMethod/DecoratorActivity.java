@@ -1,4 +1,4 @@
-package com.example.design.DecoratorMethod;
+package com.example.design.decoratorMethod;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -23,7 +23,17 @@ public class DecoratorActivity extends Activity {
 
     }
 
-    public void onDecoratorCase(View view) {
+    public void onMakeEspresso(View view) {
+        Beverage beverage = new Espresso();
+        Log.d("Decorator", "Description:" + beverage.getDescription() + ";cost:" + beverage.cost());
 
+    }
+
+    public void onMakeMochaWhip(View view) {
+        Beverage beverage = new DarkBeverage();
+        beverage = new Mocha(beverage);
+        beverage = new Mocha(beverage);
+        beverage = new Whip(beverage);
+        Log.d("Decorator", "Description:" + beverage.getDescription() + ";cost:" + beverage.cost());
     }
 }

@@ -21,4 +21,12 @@ public class MainActivity extends AppCompatActivity {
     public void doDecoratorMethod(View view) {
         startActivity(new Intent("android.intent.action.DECORATOR"));
     }
+
+    public void doFacadeMethod(View view) {
+        startActivity(new Intent("android.intent.action.FACADE"));
+    }
+
+    public void doFlyweightMethod(View view){
+        startActivity(new Intent("android.intent.action.FLYWEIGHT"));
+    }
 }

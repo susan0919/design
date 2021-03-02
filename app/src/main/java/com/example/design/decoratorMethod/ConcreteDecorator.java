@@ -1,4 +1,4 @@
-package com.example.design.DecoratorMethod;
+package com.example.design.decoratorMethod;
 
 import android.util.Log;
 

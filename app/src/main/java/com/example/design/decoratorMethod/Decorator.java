@@ -1,4 +1,4 @@
-package com.example.design.DecoratorMethod;
+package com.example.design.decoratorMethod;
 
 public class Decorator implements Component {
     private Component component;
