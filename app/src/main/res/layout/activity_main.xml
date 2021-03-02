@@ -19,5 +19,17 @@
         android:onClick="doDecoratorMethod"
         android:text="装饰着模式" />
 
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="doFacadeMethod"
+        android:text="外观模式" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="doFlyweightMethod"
+        android:text="享元模式" />
+
 
 </LinearLayout>

@@ -22,9 +22,21 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        <activity android:name=".DecoratorMethod.DecoratorActivity">
+        <activity android:name=".decoratorMethod.DecoratorActivity">
             <intent-filter>
                 <action android:name="android.intent.action.DECORATOR" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".facadeMethod.FacadeActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.FACADE" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".flyweightMethod.FlyweightActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.FLYWEIGHT" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
