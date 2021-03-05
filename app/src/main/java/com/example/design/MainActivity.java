@@ -26,7 +26,23 @@ public class MainActivity extends AppCompatActivity {
         startActivity(new Intent("android.intent.action.FACADE"));
     }
 
-    public void doFlyweightMethod(View view){
+    public void doFlyweightMethod(View view) {
         startActivity(new Intent("android.intent.action.FLYWEIGHT"));
+    }
+
+    public void doFactoryMethod(View view) {
+        startActivity(new Intent("android.intent.action.FACTORY"));
+    }
+
+    public void doCompositeMethod(View view) {
+        startActivity(new Intent("android.intent.action.COMPOSITE"));
+    }
+
+    public void doTemplateMethod(View view) {
+        startActivity(new Intent("android.intent.action.TEMPLATE"));
+    }
+
+    public void doStrategyMethod(View view) {
+        startActivity(new Intent("android.intent.action.STRATEGY"));
     }
 }
