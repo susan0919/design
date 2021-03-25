@@ -24,7 +24,7 @@ public class AppInfoDao extends AbstractDao<AppInfo, Long> {
     public static class Properties {
         public final static Property Id = new Property(0, Long.class, "id", true, "_id");
         public final static Property PackageName = new Property(1, String.class, "packageName", false, "PACKAGE_NAME");
-        public final static Property IsLocal = new Property(2, boolean.class, "isLocal", false, "IS_LOCAL");
+        public final static Property Position = new Property(2, int.class, "position", false, "POSITION");
     }
 
 
@@ -42,7 +42,7 @@ public class AppInfoDao extends AbstractDao<AppInfo, Long> {
         db.execSQL("CREATE TABLE " + constraint + "\"APP_INFO\" (" + //
                 "\"_id\" INTEGER PRIMARY KEY AUTOINCREMENT ," + // 0: id
                 "\"PACKAGE_NAME\" TEXT," + // 1: packageName
-                "\"IS_LOCAL\" INTEGER NOT NULL );"); // 2: isLocal
+                "\"POSITION\" INTEGER NOT NULL );"); // 2: position
     }
 
     /** Drops the underlying database table. */
@@ -64,7 +64,7 @@ public class AppInfoDao extends AbstractDao<AppInfo, Long> {
         if (packageName != null) {
             stmt.bindString(2, packageName);
         }
-        stmt.bindLong(3, entity.getIsLocal() ? 1L: 0L);
+        stmt.bindLong(3, entity.getPosition());
     }
 
     @Override
@@ -80,7 +80,7 @@ public class AppInfoDao extends AbstractDao<AppInfo, Long> {
         if (packageName != null) {
             stmt.bindString(2, packageName);
         }
-        stmt.bindLong(3, entity.getIsLocal() ? 1L: 0L);
+        stmt.bindLong(3, entity.getPosition());
     }
 
     @Override
@@ -93,7 +93,7 @@ public class AppInfoDao extends AbstractDao<AppInfo, Long> {
         AppInfo entity = new AppInfo( //
             cursor.isNull(offset + 0) ? null : cursor.getLong(offset + 0), // id
             cursor.isNull(offset + 1) ? null : cursor.getString(offset + 1), // packageName
-            cursor.getShort(offset + 2) != 0 // isLocal
+            cursor.getInt(offset + 2) // position
         );
         return entity;
     }
@@ -102,7 +102,7 @@ public class AppInfoDao extends AbstractDao<AppInfo, Long> {
     public void readEntity(Cursor cursor, AppInfo entity, int offset) {
         entity.setId(cursor.isNull(offset + 0) ? null : cursor.getLong(offset + 0));
         entity.setPackageName(cursor.isNull(offset + 1) ? null : cursor.getString(offset + 1));
-        entity.setIsLocal(cursor.getShort(offset + 2) != 0);
+        entity.setPosition(cursor.getInt(offset + 2));
      }
     
     @Override

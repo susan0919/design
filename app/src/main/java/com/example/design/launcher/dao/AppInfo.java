@@ -8,14 +8,13 @@ public class AppInfo {
     @Id(autoincrement = true)
     private Long id;
     private String packageName;
-    private boolean isLocal;
-    @Generated(hash = 1412180378)
-    public AppInfo(Long id, String packageName, boolean isLocal) {
+    private int position;
+    @Generated(hash = 1709039024)
+    public AppInfo(Long id, String packageName, int position) {
         this.id = id;
         this.packageName = packageName;
-        this.isLocal = isLocal;
+        this.position = position;
     }
-    @Generated(hash = 1656151854)
     public AppInfo() {
     }
     public Long getId() {
@@ -30,10 +29,12 @@ public class AppInfo {
     public void setPackageName(String packageName) {
         this.packageName = packageName;
     }
-    public boolean getIsLocal() {
-        return this.isLocal;
+
+    public int getPosition() {
+        return position;
     }
-    public void setIsLocal(boolean isLocal) {
-        this.isLocal = isLocal;
+
+    public void setPosition(int position) {
+        this.position = position;
     }
 }

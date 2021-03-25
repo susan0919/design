@@ -2,9 +2,10 @@ package com.example.design.launcher.manager;
 
 import android.content.Context;
 import android.content.pm.PackageInfo;
+import android.os.Handler;
+import android.os.Message;
 
 import com.example.design.launcher.dao.AppInfo;
-import com.example.design.launcher.dao.HomeAppInfo;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,7 +16,9 @@ public class AppInfoManager {
     public AppInfoManager instance;
     private DataBaseManager dataBaseManager;
 
+    private static final int MSG_APP_INITED = 0;
     public List<AppInfo> apps = new ArrayList<>();
+
 
     public AppInfoManager getInstance(Context context) {
         if (instance == null) {
@@ -30,8 +33,20 @@ public class AppInfoManager {
         loadAllApps();
     }
 
-    private void loadAllApps() {
+    private final Handler handler = new Handler() {
+        @Override
+        public void handleMessage(Message msg) {
+            switch (msg.what) {
+                case MSG_APP_INITED:
+                    break;
+                default:
+                    //do nothing
+                    break;
+            }
+        }
+    };
 
+    private void loadAllApps() {
         Thread thread = new Thread(new Runnable() {
             @Override
             public void run() {
@@ -64,6 +79,25 @@ public class AppInfoManager {
                     dbApps.remove(toBeDeleted);
                 }
 
+                //save app to database
+                for (PackageInfo packageInfo : installApps) {
+                    boolean found = false;
+
+                    for (AppInfo appInfo : dbApps) {
+                        if (appInfo.getPackageName().equals(packageInfo.packageName)) {
+                            found = true;
+                            break;
+                        }
+                    }
+                    if (!found) {
+                        AppInfo app = new AppInfo();
+                        app.setPackageName(packageInfo.packageName);
+                        app.setPosition(apps.size());
+                        dataBaseManager.insertInAll(app);
+                        apps.add(app);
+                    }
+                }
+                handler.sendEmptyMessage(MSG_APP_INITED);
 
             }
         });
@@ -77,8 +111,13 @@ public class AppInfoManager {
         return appInfo;
     }
 
+    public List<AppInfo> getApps() {
+        return apps;
+    }
 
     public void destroy() {
         instance = null;
+        dataBaseManager.destroy();
+        apps.clear();
     }
 }
