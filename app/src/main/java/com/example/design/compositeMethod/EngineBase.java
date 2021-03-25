@@ -1,9 +1,7 @@
 package com.example.design.compositeMethod;
 
 import com.example.design.compositeMethod.model.EngineResult;
-import com.example.design.compositeMethod.model.TreeNode;
 import com.example.design.compositeMethod.model.TreeRich;
-import com.example.design.compositeMethod.model.TreeRoot;
 
 import java.util.Map;
 

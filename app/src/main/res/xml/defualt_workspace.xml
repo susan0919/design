@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+    <card_item
+        isLocal="1"
+        package="com.bonauto.carlife"
+        title="百度CarLife" />
+    <card_item
+        isLocal="1"
+        package="com.bonauto.carplay"
+        title="AppleCarplay" />
+
+
+    <item
+        isLocal="1"
+        package="com.easydrive.video"
+        title="视频" />
+
+    <item
+        isLocal="1"
+        package="com.easydrive.image"
+        title="图片" />
+
+    <item
+        isLocal="1"
+        package="com.easydrive.settings"
+        title="设置" />
+
+    <item
+        isLocal="1"
+        package="com.easydrive.emenu"
+        title="用户手册" />
+    <item
+        isLocal="1"
+        package="com.easydrive.calendar"
+        title="日历" />
+    <item
+        isLocal="1"
+        package="com.easydrive.factory"
+        title="工厂模式" />
+    <item
+        isLocal="1"
+        package="com.easydrive.update"
+        title="升级" />
+    <item
+        isLocal="1"
+        package="com.bonauto.engineer"
+        title="工程师模式" />
+
+    <item
+        isLocal="0"
+        package="com.eryanet.m85weather"
+        title="天气" />
+    <item
+        isLocal="0"
+        package="com.eryanet.m85radio"
+        title="电台" />
+    <item
+        isLocal="0"
+        package="com.eryanet.m85news"
+        title="新闻" />
+    <item
+        isLocal="0"
+        package="com.eryanet.m85stock"
+        title="股票" />
+    <item
+        isLocal="0"
+        package="com.eryanet.m85.ticket"
+        title="票务" />
+    <item
+        isLocal="0"
+        package="com.tencent.wecarmusicp"
+        title="音乐" />
+
+</root>
