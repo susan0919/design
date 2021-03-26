@@ -8,12 +8,12 @@ import com.example.design.launcher.view.IAppListView;
 
 import java.util.List;
 
-public class LauncherPresenter implements IAppListPresenter, IAppListChangeListener {
+public class AppListPresenter implements IAppListPresenter, IAppListChangeListener {
     private List<String> appList;
     private AppInfoManager appInfoManager;
     private IAppListView launcherView;
 
-    public LauncherPresenter(IAppListView launcherView, Context context) {
+    public AppListPresenter(IAppListView launcherView, Context context) {
         this.launcherView = launcherView;
         appInfoManager = AppInfoManager.getInstance(context);
     }

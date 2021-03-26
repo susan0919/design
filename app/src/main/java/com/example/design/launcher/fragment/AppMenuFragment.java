@@ -8,14 +8,14 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.design.R;
 import com.example.design.launcher.adapter.AppListAdapter;
 import com.example.design.launcher.base.LazyLoadFragment;
-import com.example.design.launcher.presenter.LauncherPresenter;
+import com.example.design.launcher.presenter.AppListPresenter;
 import com.example.design.launcher.view.IAppListView;
 
 import java.util.List;
 
 public class AppMenuFragment extends LazyLoadFragment implements IAppListView {
     private RecyclerView recyclerView;
-    private LauncherPresenter presenter;
+    private AppListPresenter presenter;
     private AppListAdapter appListAdapter;
 
     @Override
@@ -31,11 +31,12 @@ public class AppMenuFragment extends LazyLoadFragment implements IAppListView {
     @Override
     protected void initView(View view) {
         recyclerView = view.findViewById(R.id.app_list);
-        presenter = new LauncherPresenter(this, getContext());
+        presenter = new AppListPresenter(this, getContext());
+        List<String> list = presenter.getAppList();
         GridLayoutManager gridLayoutManager = new GridLayoutManager(getContext(), 4);
         recyclerView.setLayoutManager(gridLayoutManager);
         appListAdapter = new AppListAdapter(getContext());
-        appListAdapter.setAppList(presenter.getAppList());
+        appListAdapter.setAppList(list);
         recyclerView.setAdapter(appListAdapter);
 
     }
@@ -59,6 +60,7 @@ public class AppMenuFragment extends LazyLoadFragment implements IAppListView {
     public void updateAppListView(List<String> data) {
         if (isVisibleToUser) {
             appListAdapter.setAppList(presenter.getAppList());
+            notifyAll();
         }
 
     }

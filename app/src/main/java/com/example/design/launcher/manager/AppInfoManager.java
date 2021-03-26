@@ -31,6 +31,7 @@ public class AppInfoManager {
     private AppInfoManager(Context context) {
         this.context = context;
         dataBaseManager = new DataBaseManager(context);
+        dataBaseManager.init();
         loadAllApps();
     }
 
@@ -69,6 +70,7 @@ public class AppInfoManager {
             @Override
             public void run() {
                 apps.clear();
+
                 List<Integer> toBeDeleted = new ArrayList<>();
                 List<AppInfo> dbApps = dataBaseManager.queryAllAppInfoList();
                 List<PackageInfo> installApps = context.getPackageManager().getInstalledPackages(0);
@@ -85,9 +87,9 @@ public class AppInfoManager {
                         dataBaseManager.deleteInAll(dbApp);
                         toBeDeleted.add(i);
 
-                        for (AppInfo homeAppInfo : apps) {
-                            if (homeAppInfo.getPackageName().equals(dbApp.getPackageName())) {
-                                apps.remove(homeAppInfo);
+                        for (AppInfo appInfo : apps) {
+                            if (appInfo.getPackageName().equals(dbApp.getPackageName())) {
+                                apps.remove(appInfo);
                                 break;
                             }
                         }
@@ -114,7 +116,7 @@ public class AppInfoManager {
                         apps.add(app);
                     }
                 }
-                for (AppInfo appInfo : apps) {
+                for (AppInfo appInfo : dbApps) {
                     applist.add(appInfo.getPackageName());
                 }
                 handler.sendEmptyMessage(MSG_APP_INITED);

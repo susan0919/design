@@ -97,6 +97,7 @@ public class AppListAdapter extends RecyclerView.Adapter<AppListAdapter.ViewHold
         if (list != null) {
             this.list.addAll(list);
         }
+        notifyDataSetChanged();
     }
 
     @Override
