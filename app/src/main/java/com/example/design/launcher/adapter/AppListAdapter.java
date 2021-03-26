@@ -85,7 +85,7 @@ public class AppListAdapter extends RecyclerView.Adapter<AppListAdapter.ViewHold
 
     @Override
     public int getItemCount() {
-        return list != null ? 0 : list.size();
+        return list == null ? 0 : list.size();
     }
 
     public void setAppList(List<String> list) {
