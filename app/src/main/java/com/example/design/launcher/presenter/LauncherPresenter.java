@@ -8,7 +8,7 @@ import com.example.design.launcher.view.IAppListView;
 
 import java.util.List;
 
-public class LauncherPresenter implements IAppList, IAppListChangeListener {
+public class LauncherPresenter implements IAppListPresenter, IAppListChangeListener {
     private List<String> appList;
     private AppInfoManager appInfoManager;
     private IAppListView launcherView;
