@@ -14,11 +14,11 @@ public class CompositeActivity extends Activity {
     }
 
     public void onCompositeTest(View view) {
-        ViewGoup rootView = new ViewGoup("LinearLayout");
-        ViewGoup frameView = new ViewGoup("FrameLayout");
-        ContentView textView = new ContentView("TextView");
-        ContentView button = new ContentView("Button");
-        ContentView label = new ContentView("Label");
+        CustomViewGoup rootView = new CustomViewGoup("LinearLayout");
+        CustomViewGoup frameView = new CustomViewGoup("FrameLayout");
+        ContentCustomView textView = new ContentCustomView("TextView");
+        ContentCustomView button = new ContentCustomView("Button");
+        ContentCustomView label = new ContentCustomView("Label");
         rootView.addView(frameView);
         rootView.addView(textView);
         frameView.addView(button);

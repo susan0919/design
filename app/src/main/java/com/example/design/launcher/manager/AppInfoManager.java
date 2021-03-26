@@ -13,14 +13,15 @@ import java.util.List;
 public class AppInfoManager {
     private static final String TAG = AppInfoManager.class.getSimpleName();
     private Context context;
-    public AppInfoManager instance;
+    public static AppInfoManager instance;
     private DataBaseManager dataBaseManager;
 
     private static final int MSG_APP_INITED = 0;
     public List<AppInfo> apps = new ArrayList<>();
+    public List<String> applist = new ArrayList<>();
+    private List<IAppListChangeListener> listenerList = new ArrayList<>();
 
-
-    public AppInfoManager getInstance(Context context) {
+    public static AppInfoManager getInstance(Context context) {
         if (instance == null) {
             instance = new AppInfoManager(context);
         }
@@ -38,6 +39,7 @@ public class AppInfoManager {
         public void handleMessage(Message msg) {
             switch (msg.what) {
                 case MSG_APP_INITED:
+                    notifyAppListChanged();
                     break;
                 default:
                     //do nothing
@@ -45,6 +47,22 @@ public class AppInfoManager {
             }
         }
     };
+
+
+    public void registerListener(IAppListChangeListener listener) {
+        listenerList.add(listener);
+
+    }
+
+    public void unRegisterListener(IAppListChangeListener listener) {
+        listenerList.remove(listener);
+    }
+
+    private void notifyAppListChanged() {
+        for (IAppListChangeListener listChangeListener : listenerList) {
+            listChangeListener.onAppListChanged(applist);
+        }
+    }
 
     private void loadAllApps() {
         Thread thread = new Thread(new Runnable() {
@@ -82,7 +100,6 @@ public class AppInfoManager {
                 //save app to database
                 for (PackageInfo packageInfo : installApps) {
                     boolean found = false;
-
                     for (AppInfo appInfo : dbApps) {
                         if (appInfo.getPackageName().equals(packageInfo.packageName)) {
                             found = true;
@@ -97,6 +114,9 @@ public class AppInfoManager {
                         apps.add(app);
                     }
                 }
+                for (AppInfo appInfo : apps) {
+                    applist.add(appInfo.getPackageName());
+                }
                 handler.sendEmptyMessage(MSG_APP_INITED);
 
             }
@@ -105,14 +125,9 @@ public class AppInfoManager {
         thread.start();
     }
 
-    private AppInfo generatePackeToAppInfo(PackageInfo packageInfo) {
-        AppInfo appInfo = new AppInfo();
-        appInfo.setPackageName(packageInfo.packageName);
-        return appInfo;
-    }
 
-    public List<AppInfo> getApps() {
-        return apps;
+    public List<String> getApps() {
+        return applist;
     }
 
     public void destroy() {

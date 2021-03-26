@@ -3,11 +3,11 @@ package com.example.design.compositeMethod;
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class View {
-    protected List<View> views = new ArrayList<>();
+public abstract class CustomView {
+    protected List<CustomView> views = new ArrayList<>();
     protected String name;
 
-    public View(String name) {
+    public CustomView(String name) {
         this.name = name;
     }
 
