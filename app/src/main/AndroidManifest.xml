@@ -40,6 +40,49 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+        <activity android:name=".factoryMethod.FactoryActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.FACTORY" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".compositeMethod.CompositeActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.COMPOSITE" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".templateMethod.TemplateActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.TEMPLATE" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".strategyMethod.StrategyActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.STATEGY" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".commandMethod.CommandActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.COMMAND" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".InterpreterMethod.InterpreterActivity" />
+        <activity android:name=".TouchTestActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.TOUCH-TEST" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".launcher.LauncherActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.LAUNCHER" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>

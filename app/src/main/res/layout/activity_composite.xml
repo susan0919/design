@@ -5,13 +5,13 @@
     android:layout_height="match_parent"
     android:layout_marginTop="100px"
     android:orientation="vertical"
-    tools:context=".flyweightMethod.FlyweightActivity">
+    tools:context=".compositeMethod.CompositeActivity">
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:onClick="onFlyweightTest"
-        android:text="享元模式测试" />
+        android:onClick="onCompositeTest"
+        android:text="组合模式测试" />
 
 
     <TextView
@@ -20,9 +20,4 @@
         android:layout_gravity="center"
         android:text="-------------------------------------" />
 
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:onClick="onFiveChessTest"
-        android:text="五子棋" />
 </LinearLayout>

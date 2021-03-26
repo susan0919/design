@@ -3,19 +3,33 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".bridgeMethod.BridgeActivity"
     android:layout_marginTop="100px"
-    android:orientation="vertical">
+    tools:context=".TouchTestActivity"
+    android:background="@color/colorPrimary">
 
-    <Button
+
+    <com.example.design.customView.BubbleView
+        android:id="@+id/bubbleView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:onClick="onNormalMsgSend"
-        android:text="发送普通邮件" />
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:onClick="onUrgencyMsgSend"
-        android:text="发送加急邮件" />
+        android:layout_height="match_parent" />
+
+    <!--        <LinearLayout-->
+    <!--            android:id="@+id/head"-->
+    <!--            android:layout_width="match_parent"-->
+    <!--            android:layout_height="100px"-->
+    <!--            android:background="@color/colorPrimary"-->
+    <!--            android:orientation="horizontal" />-->
+
+    <!--        <ListView-->
+    <!--            android:id="@+id/list_item"-->
+    <!--            android:layout_width="match_parent"-->
+    <!--            android:layout_height="800px" />-->
+
+    <!--        <LinearLayout-->
+    <!--            android:id="@+id/foot"-->
+    <!--            android:layout_width="match_parent"-->
+    <!--            android:layout_height="200px"-->
+    <!--            android:background="@color/colorPrimary"-->
+    <!--            android:orientation="horizontal" />-->
 
 </LinearLayout>

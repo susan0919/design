@@ -20,4 +20,9 @@
         android:layout_gravity="center"
         android:text="-------------------------------------" />
 
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="onFiveChessTest"
+        android:text="五子棋" />
 </LinearLayout>

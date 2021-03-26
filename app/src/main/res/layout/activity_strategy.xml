@@ -5,12 +5,12 @@
     android:layout_height="match_parent"
     android:layout_marginTop="100px"
     android:orientation="vertical"
-    tools:context=".TemplateMethod.TemplateActivity">
+    tools:context=".strategyMethod.StrategyActivity">
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:onClick="onTemplateTest"
-        android:text="模板模式测试" />
+        android:onClick="onStrategyTest"
+        android:text="策略模式测试" />
 
 </LinearLayout>

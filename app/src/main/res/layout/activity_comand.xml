@@ -5,13 +5,13 @@
     android:layout_height="match_parent"
     android:layout_marginTop="100px"
     android:orientation="vertical"
-    tools:context=".compositeMethod.CompositeActivity">
+    tools:context=".commandMethod.CommandActivity">
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:onClick="onCompositeTest"
-        android:text="组合模式测试" />
+        android:onClick="onCommandTest"
+        android:text="命令模式测试" />
 
 
     <TextView

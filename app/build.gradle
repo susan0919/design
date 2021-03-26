@@ -39,7 +39,7 @@ buildscript {
 }
 greendao {
     schemaVersion 1
-    daoPackage 'com.example.design.designCombat.dao'
+    daoPackage 'com.example.design.launcher.dao'
     targetGenDir 'src/main/java'
 }
 dependencies {
@@ -52,4 +52,9 @@ dependencies {
     implementation 'org.greenrobot:greenrobot-jdt:3.12.2'
     implementation 'org.greenrobot:greendao:3.2.2'
     implementation 'org.greenrobot:greendao-generator:3.2.2'
+    implementation 'com.android.support:recyclerview-v7:27.1.1'
+
+    testImplementation 'junit:junit:4.13-beta-3'
+    androidTestImplementation 'com.android.support.test:runner:1.0.2'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
 }
