@@ -4,7 +4,7 @@ import org.junit.Test;
 
 import static org.junit.Assert.*;
 
-public class AppMenuFragmentTest {
+public class AppRecyclerViewFragmentTest {
 
     @Test
     public void fetchData() {

@@ -10,7 +10,7 @@ import androidx.viewpager.widget.ViewPager;
 
 import com.example.design.R;
 import com.example.design.launcher.adapter.ViewPagerFragmentAdapter;
-import com.example.design.launcher.fragment.AppMenuFragment;
+import com.example.design.launcher.fragment.AppRecyclerViewFragment;
 import com.example.design.launcher.fragment.SecondMenuFragment;
 
 import java.util.ArrayList;
@@ -22,7 +22,8 @@ public class LauncherActivity extends FragmentActivity implements ViewPager.OnPa
     public ViewPagerFragmentAdapter fragmentAdapter;
     public List<Fragment> fragmentList;
     public SecondMenuFragment secondMenuFragment;
-    public AppMenuFragment appMenuFragment;
+    public AppRecyclerViewFragment appMenuFragment;
+    public AppRecyclerViewFragment appRecyclerViewFragment;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -34,10 +35,12 @@ public class LauncherActivity extends FragmentActivity implements ViewPager.OnPa
 
     private void initView() {
         secondMenuFragment = new SecondMenuFragment();
-        appMenuFragment = new AppMenuFragment();
+        appMenuFragment = new AppRecyclerViewFragment();
+        appRecyclerViewFragment = new AppRecyclerViewFragment();
         fragmentList = new ArrayList<>();
         fragmentList.add(secondMenuFragment);
         fragmentList.add(appMenuFragment);
+        fragmentList.add(appRecyclerViewFragment);
 
         viewPager = findViewById(R.id.container);
         Log.d("wendan", "viewPager = " + viewPager);

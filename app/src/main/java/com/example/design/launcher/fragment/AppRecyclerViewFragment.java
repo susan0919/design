@@ -13,7 +13,7 @@ import com.example.design.launcher.view.IAppListView;
 
 import java.util.List;
 
-public class AppMenuFragment extends LazyLoadFragment implements IAppListView {
+public class AppRecyclerViewFragment extends LazyLoadFragment implements IAppListView {
     private RecyclerView recyclerView;
     private AppListPresenter presenter;
     private AppListAdapter appListAdapter;
